@@ -7,7 +7,7 @@
 #include "Runtime/Core/Public/HAL/FileManager.h"
 
 #include "EditorAssetLibrary.h"
-#include "Runtime/AssetRegistry/Public/AssetRegistryModule.h"
+#include "Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h"
 
 #include "ContentBrowserModule.h"
 #include "IContentBrowserSingleton.h"

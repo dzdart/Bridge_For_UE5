@@ -237,10 +237,11 @@ void FImport3d::ImportScatter(TSharedPtr<FAssetTypeData> AssetImportData, TArray
 
 					if (MeshNameRefined == LodNameRefined)
 					{
-
+		
+						UStaticMeshEditorSubsystem* StaticMeshEditorSubsystem=GEditor->GetEditorSubsystem<UStaticMeshEditorSubsystem>();
+						StaticMeshEditorSubsystem->SetLodFromStaticMesh(ImportedScatter, LodCounter, CastChecked<UStaticMesh>(UEditorAssetLibrary::LoadAsset(MeshLod)), 0, true);
 						//UEditorStaticMeshLibrary::SetLodFromStaticMesh(ImportedScatter, LodCounter, CastChecked<UStaticMesh>(UEditorAssetLibrary::LoadAsset(MeshLod)), 0, true);
-						UDEPRECATED_EditorStaticMeshLibrary::SetLodFromStaticMesh(ImportedScatter, LodCounter, CastChecked<UStaticMesh>(UEditorAssetLibrary::LoadAsset(MeshLod)), 0, true);
-
+						
 					}
 					ImportedScatter->PostEditChange();
 					ImportedScatter->MarkPackageDirty();

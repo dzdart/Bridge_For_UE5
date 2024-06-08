@@ -162,6 +162,11 @@ class SMegascansSettings : public SCompoundWidget, public FGCObject
 		Collector.AddReferencedObject(MaterialOverrideSettings);
 	}
 
+	virtual FString GetReferencerName() const override
+	{
+		return TEXT("SMegascansSettings");
+	}
+
 private:
 
 	TSharedPtr<IDetailsView> MiscOptionsDetails;

@@ -2,7 +2,7 @@
 #include "UI/QMSUIManager.h"
 #include "UI/MSStyle.h"
 
-#include "AssetData.h"
+#include "Runtime/CoreUObject/Public/AssetRegistry/AssetData.h"
 #include "ContentBrowserModule.h"
 #include "LevelEditor.h"
 #include "Framework/MultiBox/MultiBoxBuilder.h"

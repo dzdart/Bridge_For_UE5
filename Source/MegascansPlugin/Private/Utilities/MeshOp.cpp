@@ -17,7 +17,7 @@
 
 #include "Runtime/Foliage/Public/FoliageType.h"
 #include "Runtime/Foliage/Public/FoliageType_InstancedStaticMesh.h"
-#include "Runtime/AssetRegistry/Public/AssetRegistryModule.h"
+#include "Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h"
 #include "PerPlatformProperties.h"
 #include "UI/MSSettings.h"
 
@@ -96,7 +96,11 @@ void FMeshOps::ApplyAbcLods(UStaticMesh* SourceMesh, const TArray<FString>& LodP
 		if (LodCounter > 7) continue;
 		FString ImportedLodPath = ImportMesh(LodPath, LodDestination, "");
 		UStaticMesh* ImportedLod = CastChecked<UStaticMesh>(LoadAsset(ImportedLodPath));
-		UDEPRECATED_EditorStaticMeshLibrary::SetLodFromStaticMesh(SourceMesh, LodCounter, ImportedLod, 0, true);
+
+
+		UStaticMeshEditorSubsystem* StaticMeshEditorSubsystem = GEditor->GetEditorSubsystem<UStaticMeshEditorSubsystem>();
+		StaticMeshEditorSubsystem->SetLodFromStaticMesh(SourceMesh, LodCounter, ImportedLod, 0, true);
+
 		LodCounter++;
 	}
 	UEditorAssetLibrary::DeleteDirectory(LodDestination);

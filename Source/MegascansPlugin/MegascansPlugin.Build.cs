@@ -37,8 +37,9 @@ namespace UnrealBuildTool.Rules
 					"SQLiteCore",
 					"SQLiteSupport",
 					"EditorScriptingUtilities",
+                    "StaticMeshEditor"
 
-				}
+                }
 			);
 		}
 	}
